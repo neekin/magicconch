@@ -23,7 +23,3 @@ def create_client():
 def __register_user_by_email():
     form = UserEmailForm().validate_for_api()
     User.register_by_email(form.nickname.data, form.account.data, form.secret.data)
-
-
-def prn_obj(obj):
-    print('\n'.join(['%s:%s' % item for item in obj.__dict__.items()]))
