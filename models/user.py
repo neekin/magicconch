@@ -31,14 +31,14 @@ class User(Base):
 
     @staticmethod
     def verify(email, password):
-        user = User.query.filter(email=email).first()
+        user = User.query.filter_by(email=email).first()
         if not user:
             raise NotFound(msg="user not found")
         if not user.check_password(password):
             raise AuthFailed()
-        return  {'uid':user.id}
+        return {'uid': user.id}
 
-    def check_password(self,raw):
+    def check_password(self, raw):
         if not self._password:
             return False
-        return check_password_hash(self._password,raw)
+        return check_password_hash(self._password, raw)

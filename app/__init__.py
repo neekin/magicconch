@@ -23,4 +23,4 @@ def register_plugin(app):
 def register_blueprint(app):
     from api.v1 import create_blueprint_v1
     blueprint = create_blueprint_v1()
-    app.register_blueprint(blueprint, url_prefix='/v1')
+    app.register_blueprint(blueprint, url_prefix='/api/v1')

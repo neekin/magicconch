@@ -16,17 +16,17 @@ def test():
     return '没有提示真爽'
 
 
-@app.errorhandler(Exception)
-def framework_error(e):
-    if isinstance(e, ApiException):
-        return e
-    if isinstance(e, HTTPException):
-        code = e.code
-        msg = e.description
-        error_code = 1007
-        return ApiException(msg, code, error_code)
-    else:
-        return ApiException()
+# @app.errorhandler(Exception)
+# def framework_error(e):
+#     if isinstance(e, ApiException):
+#         return e
+#     if isinstance(e, HTTPException):
+#         code = e.code
+#         msg = e.description
+#         error_code = 1007
+#         return ApiException(msg, code, error_code)
+#     else:
+#         return ApiException()
 
 
 if __name__ == '__main__':
